@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Jurusan;
 use App\Models\Mahasiswa;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -55,6 +56,12 @@ class AdminController extends Controller
         $mahasiswa->id_jurusan = $request->id_jurusan;
         $mahasiswa->id_angkatan = $request->id_angkatan;
         $mahasiswa->save();
+        // Simpan sebagai user juga
+        $user = new User();
+        $user->username = $request->nim;
+        $user->password = bcrypt($request->nim);
+        $user->level = '2';
+        $user->save();
         return redirect()->route('listmahasiswa');
     }
     public function editmahasiswa($id)
