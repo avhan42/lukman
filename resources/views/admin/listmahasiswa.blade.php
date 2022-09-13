@@ -4,7 +4,7 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Data Mahasiswa</h1>
+        <h1 class="h3 mb-2 text-gray-800">Data Alumni</h1>
 
 
         <!-- DataTales Example -->
@@ -12,7 +12,7 @@
             <div class="card-header py-3">
                 {{-- <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> --}}
                 <a href="{{ url('mahasiswa/tambah') }}" class="btn btn-primary btn-sm"> <i class="fas fa-plus-circle"></i>
-                    Tambah Data Mahasiswa</a>
+                    Tambah Data Alumni</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

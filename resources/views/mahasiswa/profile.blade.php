@@ -5,7 +5,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Profile Mahasiswa</h1>
+            <h1 class="h3 mb-0 text-gray-800">Profile Alumni</h1>
         </div>
 
         <!-- Content Row -->
@@ -56,7 +56,7 @@
                         {{-- Nama --}}
                         <div class="text-xs font-weight-bold text-primary text-uppercase mt-3">{{ $mahasiswa->nama }}</div>
                     </div>
-                    <div class="card-footer">
+                    {{-- <div class="card-footer">
                         <div class="row">
                             <div class="col-md-12 text-center">
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -65,62 +65,11 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
 
             </div>
             {{-- Profile card --}}
             <!-- /.container-fluid -->
             {{-- Modal Edit --}}
-            <!-- Modal -->
-            <div class="modal fade" id="editProfile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Edit Profile {{ $mahasiswa->nama }}</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <form action="{{ Route('mahasiswa.update', $mahasiswa->nim) }}" method="post"
-                            enctype="multipart/form-data">
-                            @method('PUT')
-                            @csrf
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label for="nama">Nama</label>
-                                    <input type="hidden" name="id" value="{{ $mahasiswa->id }}">
-                                    <input type="text" class="form-control" id="nama"
-                                        value="{{ $mahasiswa->nama }}">
-
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="text" class="form-control" id="email"
-                                        value="{{ $mahasiswa->email }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="jk">Jenis Kelamin</label>
-                                    {{-- <input type="text" class="form-control" id="jk" value="{{ $mahasiswa->jk }}"> --}}
-                                    <select name="jk" id="jk" class="form-control">
-                                        <option value="L" {{ $mahasiswa->jk == 'L' ? 'selected' : '' }}>Laki-Laki
-                                        </option>
-                                        <option value="P" {{ $mahasiswa->jk == 'P' ? 'selected' : '' }}>Perempuan
-                                        </option>
-                                    </select>
-                                </div>
-                                {{-- Image --}}
-                                <div class="form-group">
-                                    <label for="foto">Foto</label>
-                                    <input type="file" class="form-control" id="foto" name="foto">
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Update</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
         @endsection

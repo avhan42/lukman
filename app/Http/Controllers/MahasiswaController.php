@@ -37,17 +37,6 @@ class MahasiswaController extends Controller
         return view('mahasiswa.dashboard', compact('jmlmahasiswa', 'jmlwanita', 'jmllaki', 'jmljurusan'));
     }
    
-        public function update(Request $request, $id)
-    {
-        $mahasiswa = Mahasiswa::find($id);
-        $mahasiswa->nama = $request->nama;
-        $mahasiswa->nim = $request->nim;
-        $mahasiswa->email = $request->email;
-        $mahasiswa->jk = $request->jk;
-        $mahasiswa->id_jurusan = $request->id_jurusan;
-        $mahasiswa->id_angkatan = $request->id_angkatan;
-        $mahasiswa->save();
-        return redirect()->route('listmahasiswa');
-    }
+  
 }
 
